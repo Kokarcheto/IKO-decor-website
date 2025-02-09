@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сухо строителство и ремонти</title>
+  <style>
+    /* Основен стил */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Луксозен градиент */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Текстова сянка */
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    header button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    header button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Навигация */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #007BFF;
+    }
+
+    /* Секции */
+    .container {
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #007BFF;
+    }
+
+    /* Услуги */
+    .services {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Портфолио */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Контакти */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div>
+      <h1>Сухо строителство и ремонти</h1>
+      <p>Качествени решения за вашия дом или офис в София</p> <!-- Добавено "в София" -->
+      <button>Безплатна консултация</button>
+    </div>
+  </header>
+
+  <!-- Навигация -->
+  <nav>
+    <ul>
+      <li><a href="#about">За нас</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#portfolio">Портфолио</a></li>
+      <li><a href="#contact">Контакти</a></li>
+    </ul>
+  </nav>
+
+  <!-- Основно съдържание -->
+  <div class="container">
+    <!-- За нас -->
+    <section id="about">
+      <h2 class="section-title">За нас</h2>
+      <p>Ние сме екип от опитни специалисти, посветени на качествено сухо строителство и ремонти. С над 10 години опит в бранша, ние гарантираме удовлетвореност за всеки наш клиент. Оперираме на територията на София.</p> <!-- Добавено "Оперираме на територията на София" -->
+    </section>
+
+    <!-- Услуги -->
+    <section id="services">
+      <h2 class="section-title">Услуги</h2>
+      <div class="services">
+        <div class="service-card">
+          <h3>Сухо строителство</h3>
+          <p>Гипсокартонни конструкции, тавани и преградни стени.</p>
+        </div>
+        <div class="service-card">
+          <h3>Вътрешни ремонти</h3>
+          <p>Ремонт на апартаменти, офиси и магазини.</p>
+        </div>
+        <div class="service-card">
+          <h3>Интериорен дизайн</h3>
+          <p>Модерни решения за вашия интериор.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio">
+      <h2 class="section-title">Портфолио</h2>
+      <div class="portfolio">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300" alt="Проект 1">
+          <div class="overlay">Проект 1</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300" alt="Проект 2">
+          <div class="overlay">Проект 2</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300" alt="Проект 3">
+          <div class="overlay">Проект 3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакти -->
+    <section id="contact">
+      <h2 class="section-title">Контакти</h2>
+      <div class="contact-form">
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Име" required>
+          <input type="email" id="email" placeholder="Имейл" required>
+          <textarea id="message" placeholder="Съобщение" rows="5" required></textarea>
+          <button type="submit">Изпрати</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Свържете се с нас: <a href="mailto:ikodecor@gmail.com">ikodecor@gmail.com</a> | <a href="tel:0899826696">0899 826 696</a></p>
+    <p>Оперираме на територията на София.</p> <!-- Добавено "Оперираме на територията на София" -->
+    <p>&copy; 2023 Сухо строителство и ремонти. Всички права запазени.</p>
+  </footer>
+
+  <!-- JavaScript за обработка на формата -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Спиране на стандартното изпращане на формата
+
+      // Взимане на данните от формата
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Създаване на имейл линк
+      const subject = "Ново запитване от " + name;
+      const body = "Име: " + name + "%0D%0AИмейл: " + email + "%0D%0AСъобщение: " + message;
+      const mailtoLink = "mailto:ikodecor@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
+
+      // Отваряне на имейл клиента
+      window.location.href = mailtoLink;
+    });
+  </script>
+
+</body>
+</html>
